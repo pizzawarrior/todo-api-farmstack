@@ -13,7 +13,12 @@ from database import (
     remove_todo,
 )
 
-origins = ['https://localhost:3000']
+origins = [
+    'https://localhost:5173',
+    'http://localhost:5173',
+    'https://localhost:3000',
+
+    ]
 
 # obligatory CORS handling
 app.add_middleware(
@@ -26,7 +31,7 @@ app.add_middleware(
 
 # test
 @app.get("/")
-def read_root():
+async def read_root():
     return {"ping": "pong"}
 
 # get list of todos
@@ -52,7 +57,7 @@ async def post_todo(todo:Todo):
     raise HTTPException(400, "Request could not be completed")
 
 # update a single todo
-@app.put("/api/todo{title}", response_model=Todo)
+@app.put("/api/todo/{title}", response_model=Todo)
 async def update_todo(title:str, desc:str):
     response = await change_todo(title, desc)
     if response:
@@ -60,7 +65,7 @@ async def update_todo(title:str, desc:str):
     raise HTTPException(404, f'there is no todo with the title {title}')
 
 # delete a todo
-@app.delete("/api/todo{title}")
+@app.delete("/api/todo/{title}")
 async def delete_todo(title):
     response = await remove_todo(title)
     if response:
