@@ -1,9 +1,10 @@
 from model import Todo
+from dotenv import load_dotenv
+import os
 
 # MongoDB driver:
 import motor.motor_asyncio
-from dotenv import load_dotenv
-import os
+
 
 load_dotenv()
 
