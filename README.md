@@ -12,6 +12,6 @@
 * Client
 
 - unit tests
-- integration tests
+- integration testing
 - CI/CD
 - Add more features/ broaden functionality
