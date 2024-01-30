@@ -4,8 +4,9 @@ export default function TodoView(props) {
   return (
     <div>
       <ul>
-        {props.todoList.map((todo) => (
-          <TodoItem todo={todo} key={todo.title}/>
+        {/* refactor: do not use index as key */}
+        {props.todoList.map((todo, index) => (
+          <TodoItem key={index} todo={todo} />
         ))}
       </ul>
     </div>
