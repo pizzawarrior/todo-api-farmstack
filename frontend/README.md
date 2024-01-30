@@ -11,5 +11,7 @@
 * API
 * Client
 
-- Add a CI/CD pipeline with tests
+- unit tests
+- integration tests
+- CI/CD
 - Add more features/ broaden functionality
